@@ -1,0 +1,27 @@
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Fri Apr 24 09:28:47 2015
+
+   Source : C:\Users\Russell\Documents\HackathonProjects\Hackathon\EpilepsySite\EpilepsySite\bin\
+     Dest : C:\Users\Russell\Documents\HackathonProjects\Hackathon\EpilepsySite\EpilepsySite\App_Data\NuGetBackup\20150424-092847\bin\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /COPY:DAT /R:1000000 /W:30 
+
+------------------------------------------------------------------------------
+
+	                   0	C:\Users\Russell\Documents\HackathonProjects\Hackathon\EpilepsySite\EpilepsySite\bin\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         0         1         0         0         0
+   Files :         0         0         0         0         0         0
+   Bytes :         0         0         0         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+
+   Ended : Fri Apr 24 09:28:47 2015
