@@ -1841,6 +1841,7 @@
     <Content Include="Views\Partials\Register.cshtml" />
     <Content Include="Views\Register.cshtml" />
     <Content Include="Views\Partials\RegisterSuccess.cshtml" />
+    <Content Include="Views\ServicePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

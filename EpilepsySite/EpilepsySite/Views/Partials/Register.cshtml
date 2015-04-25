@@ -1,0 +1,21 @@
+﻿@model EpilepsySite.Web.Models.RegisterModel
+@{
+    Layout = null;
+}
+
+@using (Html.BeginUmbracoForm("Register", "Register", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.FirstName, "First Name")
+    @Html.TextBoxFor(m => m.FirstName, new { @class = "text",  placeholder = "First Name" })
+
+    @Html.LabelFor(m => m.LastName,"Last Name")
+    @Html.TextBoxFor(m => m.LastName, new { @class = "text", placeholder = "Last Name" })
+
+    @Html.LabelFor(m => m.EmailAddress, "Email")
+    @Html.TextBoxFor(m => m.EmailAddress, new { @class = "text", placeholder = "Email Address" })
+
+    @Html.LabelFor(m => m.Password, "Password")
+    @Html.TextBoxFor(m => m.Password, new { @class = "text", placeholder = "Password" , type="Password"})
+
+    <input type="submit" value="submit"/>
+}
