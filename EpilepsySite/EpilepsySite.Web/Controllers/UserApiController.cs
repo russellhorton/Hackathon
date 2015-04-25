@@ -54,6 +54,31 @@ namespace EpilepsySite.Web.Controllers
                 return string.Format("Error Adding user {0}", ex.Message);
             }
         }
-        
+
+        public string SyncData([FromBody]SyncDataModel data)
+        {
+           SyncItem syncItem = new SyncItem
+           {
+               Accuracy = data.Accuracy,
+               Alt = data.Alt,
+               DateTime = data.DateTime,
+               HeartRatePackets = new List<HeartRateItem>(),
+               MotionSensorPackets = new List<MotionSensorItem>(),
+               Lat = data.Lat,
+               Long = data.Long,
+               Status = "test",
+               UserId = data.UserId
+           };
+
+
+           if (Data.Sync.InsertSyncItem(syncItem))
+           {
+               return "Success";
+           }
+
+           return "Failed to insert";
+
+        }
+
     }
 }
