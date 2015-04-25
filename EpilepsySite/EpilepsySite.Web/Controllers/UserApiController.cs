@@ -21,7 +21,7 @@ namespace EpilepsySite.Web.Controllers
             if (Membership.ValidateUser(request.Username, request.Password))
             {
                 MembershipUser member = Membership.GetUser(request.Username);
-
+                FormsAuthentication.SetAuthCookie(request.Username, false);
                 return Newtonsoft.Json.JsonConvert.SerializeObject(member).ToString();
             }
             else

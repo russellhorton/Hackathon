@@ -225,6 +225,7 @@
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationManager.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\UserApiController.cs" />
     <Compile Include="Data\HeartRate.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Data\Sync.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\SyncDataModel.cs" />
     <Compile Include="Objects\HeartRateItem.cs" />
     <Compile Include="Objects\MotionSensorItem.cs" />

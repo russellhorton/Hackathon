@@ -10,6 +10,27 @@
     <title></title>
 </head>
 <body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/register/">Register</a></li>
+                <li><a href="/login/">Login</a></li>
+            </ul>
+        </nav>
+
+        @{
+            
+            
+            if (Membership.GetUser() != null )
+            {
+                var userName = Membership.GetUser().UserName;
+                <p>Logged in as: @userName</p>
+            }
+        }
+    </header>
+
     <div>
         @RenderBody()
     </div>

@@ -1784,10 +1784,16 @@
     <Content Include="Views\HomePage.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\Partials\Register.cshtml" />
-    <Content Include="Views\Register.cshtml" />
     <Content Include="Views\Partials\RegisterSuccess.cshtml" />
     <Content Include="Views\ServicePage.cshtml" />
     <None Include="Properties\PublishProfiles\epilexy.pubxml" />
+    <Content Include="Views\Partials\Login.cshtml" />
+    <Content Include="Views\ContentPage.cshtml" />
+    <Content Include="Views\LoginPage.cshtml" />
+    <Content Include="Views\RegisterPage.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\ReportPage.cshtml" />
+    <Content Include="Views\Partials\Reports\ReportTable.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

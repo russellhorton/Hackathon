@@ -39,12 +39,13 @@ $.ajax({
 	});
 */
 
-	
+	var userid=3
+
 	$.ajax({
 	  type: "POST",
 	  url: "http://epilepsysite.local/umbraco/api/UserApi/SyncData/",
 	  data: {
-	  	userid: 1, 
+	  	userid: userid, 
 	  	lat: 0.292929, 
 	  	long: 0.39383, 
 	  	alt: 20.202, 
@@ -52,13 +53,13 @@ $.ajax({
 	  	datetime: "2015/04/25 13:54:59", 
 	  	heartratepackets: 
 	  		[
-	  			{userid: 1, heartrate: 83, datetime: "2015/04/25 13:54:00"},
-	  			{userid: 1, heartrate: 84, datetime: "2015/04/25 13:54:01"}
+	  			{userid: userid, heartrate: 83, datetime: "2015/04/25 13:54:00"},
+	  			{userid: userid, heartrate: 84, datetime: "2015/04/25 13:54:01"}
 	  		],
 	  	motionsensorpackets: 
 	  		[
-	  			{userid: 1, xvalue: 2.21, yvalue: 1.23, zvalue: -2.21, gravity: 2.33, datetime: "2015/04/25 13:54:00"},
-	  			{userid: 1, xvalue: 2.21, yvalue: 1.23, zvalue: -2.21, gravity: 2.33, datetime: "2015/04/25 13:54:01"}
+	  			{userid: userid, xvalue: 2.21, yvalue: 1.23, zvalue: -2.21, gravity: 2.33, datetime: "2015/04/25 13:54:00"},
+	  			{userid: userid, xvalue: 2.21, yvalue: 1.23, zvalue: -2.21, gravity: 2.33, datetime: "2015/04/25 13:54:01"}
 	  		]
 	},
 	  success: syncSuccess
@@ -77,7 +78,7 @@ function registerSuccess(data){
 }
 
 function syncSuccess(data){
-	alert("Sync response: " + data);
+	console.log("Sync response: " + data);
 }
 
 

@@ -1,0 +1,49 @@
+﻿@using EpilepsySite.Web.Objects;
+@model EpilepsySite.Web.Models.ReportModel
+
+@{
+    Layout = null;
+}
+
+<h1>HeartRate</h1>
+<table>
+    <tr>
+        <td>UserId</td>
+        <td>Time Stamp</td>
+        <td>Heart Rate</td>
+    </tr>
+
+    @foreach (HeartRateItem item in Model.heartRateItems)
+    {
+        <tr>
+            <td>@item.UserId</td>
+            <td>@item.DateTime</td>
+            <td>@item.HeartRate</td>
+        </tr>
+    }
+
+</table>
+
+<h1>Motion Sensor data</h1>
+<table>
+    <tr>
+        <td>UserId</td>
+        <td>Time Stamp</td>
+        <td>X Value</td>
+        <td>Y Value</td>
+        <td>Z Value</td>
+        <td>Gravity</td>
+    </tr>
+
+    @foreach (MotionSensorItem item in Model.motionSensorItems)
+    {
+        <tr>
+            <td>@item.UserId</td>
+            <td>@item.DateTime</td>
+            <td>@item.XValue</td>
+            <td>@item.YValue</td>
+            <td>@item.ZValue</td>
+            <td>@item.Gravity</td>
+        </tr>
+    }
+</table>

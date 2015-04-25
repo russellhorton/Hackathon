@@ -13,7 +13,31 @@ namespace EpilepsySite.Web.Controllers
     public class SecurityController: SurfaceController
     {
 
-        
+        [HttpGet]
+        public ActionResult Login()
+        {
+            LoginModel model = new LoginModel();
+
+            return PartialView("Login", model);
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel model)
+        {
+
+            if (Membership.ValidateUser(model.Username, model.Password))
+            {
+                MembershipUser member = Membership.GetUser(model.Username);
+                FormsAuthentication.SetAuthCookie(model.Username,false);
+                return RedirectToCurrentUmbracoPage();
+            }
+            else
+            {
+                model.Message = "Bad username and password";
+                return PartialView("login", model);
+            }
+            
+        }
 
     }
 }

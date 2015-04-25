@@ -12,6 +12,8 @@ namespace EpilepsySite.Web.Data
     {
 
         private const string InsertHeartRateItemQuery = "INSERT INTO dt_HeartRate (UserId, SyncId, TimeStamp, HeartRate) VALUES (@UserId,@SyncId,@TimeStamp,@HeartRate)";
+        private const string GetAllHeartRateItemsQuery = "SELECT * FROM dt_HeartRate";
+        private const string GetAllHeartRateItemsByUserIdQuery = "SELECT * FROM dt_HeartRate WHERE UserId = @userId";
 
         public static bool InsertHeartRateItem(HeartRateItem heartRateItem)
         {
@@ -55,6 +57,83 @@ namespace EpilepsySite.Web.Data
 
             return success;
         }
+
+        public static List<HeartRateItem> GetAllHeartRateItems()
+        {
+            List<HeartRateItem> heartRateItems = new List<HeartRateItem>();
+
+            SqlCeConnection connection = new SqlCeConnection(Configuration.ConfigurationManager.ConnectionString);
+
+            SqlCeCommand selectSQL = new SqlCeCommand(GetAllHeartRateItemsQuery, connection);
+            
+            try
+            {
+                connection.Open();
+
+                SqlCeDataReader dataReader = selectSQL.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    HeartRateItem heartRateItem = new HeartRateItem();
+                    heartRateItem.DateTime = (DateTime)dataReader.GetSqlDateTime(dataReader.GetOrdinal("TimeStamp"));
+                    heartRateItem.UserId = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("UserId"));
+                    heartRateItem.HeartRate = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("HeartRate"));
+                    heartRateItem.SyncId = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("SyncId"));
+                    heartRateItems.Add(heartRateItem);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return heartRateItems;
+
+        }
+
+        public static List<HeartRateItem> GetAllHeartRateItemsByUserId(int userid)
+        {
+            List<HeartRateItem> heartRateItems = new List<HeartRateItem>();
+
+            SqlCeConnection connection = new SqlCeConnection(Configuration.ConfigurationManager.ConnectionString);
+
+            SqlCeCommand selectSQL = new SqlCeCommand(GetAllHeartRateItemsByUserIdQuery, connection);
+            selectSQL.Parameters.AddWithValue("@UserId", userid);
+
+            try
+            {
+                connection.Open();
+
+                SqlCeDataReader dataReader = selectSQL.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    HeartRateItem heartRateItem = new HeartRateItem();
+                    heartRateItem.DateTime = (DateTime)dataReader.GetSqlDateTime(dataReader.GetOrdinal("TimeStamp"));
+                    heartRateItem.UserId = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("UserId"));
+                    heartRateItem.HeartRate = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("HeartRate"));
+                    heartRateItem.SyncId = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("SyncId"));
+                    heartRateItems.Add(heartRateItem);                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return heartRateItems;
+        }
+
 
     }
 }

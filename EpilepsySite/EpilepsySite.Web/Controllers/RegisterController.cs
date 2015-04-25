@@ -35,28 +35,7 @@ namespace EpilepsySite.Web.Controllers
             return PartialView("RegisterSuccess", model);
         }
 
-        [HttpPost]
-        public JsonResult Register(string jsonUser)
-        {
-            try
-            {
-                User user = Newtonsoft.Json.JsonConvert.DeserializeObject<User>(jsonUser);
-                IMember newMember = Services.MemberService.CreateMember(user.EmailAddress, user.EmailAddress, string.Format("{0} {1}", user.FirstName, user.LastName), "Member");
-                Services.MemberService.Save(newMember);
-                Services.MemberService.SavePassword(newMember, user.Password);
-
-                user.UserId = newMember.Id;
-
-                return Json(Newtonsoft.Json.JsonConvert.SerializeObject(user));
-
-            } 
-            catch(Exception ex)
-            {
-                return Json("Error " + ex.Message);
-            }
-
-            
-        }
+        
 
     }
 }
