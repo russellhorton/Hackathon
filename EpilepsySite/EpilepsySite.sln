@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpilepsySite", "EpilepsySite\EpilepsySite.csproj", "{6FCFE607-EDBE-4671-94FB-C7772B59E79E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpilepsySite.Web", "EpilepsySite.Web\EpilepsySite.Web.csproj", "{ABD86517-E394-455C-A0D2-55C55083089D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6FCFE607-EDBE-4671-94FB-C7772B59E79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FCFE607-EDBE-4671-94FB-C7772B59E79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FCFE607-EDBE-4671-94FB-C7772B59E79E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD86517-E394-455C-A0D2-55C55083089D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD86517-E394-455C-A0D2-55C55083089D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD86517-E394-455C-A0D2-55C55083089D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD86517-E394-455C-A0D2-55C55083089D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

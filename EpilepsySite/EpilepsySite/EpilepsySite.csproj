@@ -1649,14 +1649,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Config\UrlRewriting.config" />
     <Content Include="Config\umbracoSettings.config" />
     <Content Include="Config\trees.config" />
@@ -1677,14 +1669,7 @@
     <Content Include="bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <Content Include="bin\EpilepsySite.dll.config" />
     <Content Include="bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
-    <Content Include="Views\BlogOverview.cshtml" />
     <Content Include="Views\BlogPost.cshtml" />
-    <Content Include="Views\Home.cshtml" />
-    <Content Include="Views\Master.cshtml" />
-    <Content Include="Views\Partials\BottomNavigation.cshtml" />
-    <Content Include="Views\Partials\Grid\Fanoe.cshtml" />
-    <Content Include="Views\Partials\MainNavigation.cshtml" />
-    <Content Include="Views\TextPage.cshtml" />
     <Content Include="App_Data\access.config" />
     <Content Include="App_Data\NuGetBackup\20150424-092847\CopyLogs\UmbracoBinBackup.log" />
     <Content Include="App_Data\NuGetBackup\20150424-092849\Config\404handlers.config" />
@@ -1851,6 +1836,11 @@
     <Content Include="umbraco\Webservices\TreeDataService.ashx" />
     <Content Include="umbraco\Webservices\UltimatePickerAutoCompleteHandler.ashx" />
     <Content Include="umbraco\Xslt\Web.config" />
+    <Content Include="Views\HomePage.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
+    <Content Include="Views\Partials\Register.cshtml" />
+    <Content Include="Views\Register.cshtml" />
+    <Content Include="Views\Partials\RegisterSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1866,6 +1856,12 @@
     <Folder Include="App_Data\TEMP\Install\" />
     <Folder Include="Views\MacroPartials\" />
     <Folder Include="xslt\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EpilepsySite.Web\EpilepsySite.Web.csproj">
+      <Project>{abd86517-e394-455c-a0d2-55c55083089d}</Project>
+      <Name>EpilepsySite.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
