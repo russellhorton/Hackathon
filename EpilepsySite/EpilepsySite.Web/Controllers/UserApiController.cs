@@ -57,26 +57,74 @@ namespace EpilepsySite.Web.Controllers
 
         public string SyncData([FromBody]SyncDataModel data)
         {
+
+            List<HeartRateItem> heartRatePackets = new List<HeartRateItem>();
+            List<MotionSensorItem> motionSensorPackets = new List<MotionSensorItem>();
+            List<string> errors = new List<string>();
+
+            if (data.HeartRatePackets != null && data.HeartRatePackets.Any())
+            {
+                heartRatePackets = data.HeartRatePackets;
+            }
+
+            if (data.MotionSensorPackets != null && data.MotionSensorPackets.Any())
+            {
+                motionSensorPackets = data.MotionSensorPackets;
+            }
+
            SyncItem syncItem = new SyncItem
            {
                Accuracy = data.Accuracy,
                Alt = data.Alt,
                DateTime = data.DateTime,
-               HeartRatePackets = new List<HeartRateItem>(),
-               MotionSensorPackets = new List<MotionSensorItem>(),
+               HeartRatePackets = heartRatePackets,
+               MotionSensorPackets = motionSensorPackets,
                Lat = data.Lat,
                Long = data.Long,
                Status = "test",
                UserId = data.UserId
            };
 
-
            if (Data.Sync.InsertSyncItem(syncItem))
            {
-               return "Success";
+
+               foreach (HeartRateItem heartRateItem in heartRatePackets)
+               {
+                   try 
+                   { 
+                        heartRateItem.SyncId = syncItem.Id;
+                        if (!Data.HeartRate.InsertHeartRateItem(heartRateItem))
+                        {
+                            throw new Exception("Insert failed");
+                        }
+                   }
+                   catch (Exception ex)
+                   {
+                       errors.Add("Error adding heart rate item: " + ex.Message);
+                   }
+               }
+
+               foreach (MotionSensorItem motionSensorItem in motionSensorPackets)
+               {
+                   try
+                   {
+                       motionSensorItem.SyncId = syncItem.Id;
+                       if (!Data.MotionSensor.InsertMotionSensorItem(motionSensorItem))
+                       {
+                           throw new Exception("Insert failed");
+                       }
+                   }
+                   catch (Exception ex)
+                   {
+                       errors.Add("Error adding motion sensor item: " + ex.Message);
+                   }
+               }
+
+               if (!errors.Any())
+                    return "Success";
            }
 
-           return "Failed to insert";
+           return "Completed with errors: " + string.Join(", ", errors);
 
         }
 

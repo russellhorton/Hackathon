@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
-using System.Data.SQLite;
+using System.Data.SqlServerCe;
 
 namespace EpilepsySite.Web.Data
 {
@@ -16,9 +16,9 @@ namespace EpilepsySite.Web.Data
         public static bool InsertSyncItem(SyncItem syncItem)
         {
             bool success = false;
-            SQLiteConnection connection = new SQLiteConnection(Configuration.ConfigurationManager.ConnectionString);
-
-            SQLiteCommand insertSQL = new SQLiteCommand(InsertSyncItemQuery, connection);
+            SqlCeConnection connection = new SqlCeConnection(Configuration.ConfigurationManager.ConnectionString);
+            //connection.SetPassword("password");
+            SqlCeCommand insertSQL = new SqlCeCommand(InsertSyncItemQuery, connection);
           
             insertSQL.Parameters.AddWithValue("@DateTime", syncItem.DateTime);
             insertSQL.Parameters.AddWithValue("@UserId", syncItem.UserId);
@@ -34,8 +34,11 @@ namespace EpilepsySite.Web.Data
                 connection.Open();
                 if (insertSQL.ExecuteNonQuery() > 0)
                 {
-                    SQLiteCommand command = new SQLiteCommand(@"select last_insert_rowid()", connection);                     
-                    syncItem.Id = (int)command.ExecuteScalar();
+                    SqlCeCommand command = new SqlCeCommand("SELECT @@IDENTITY AS Id", connection);
+                    int rowId = 0;
+                    object newRowId = command.ExecuteScalar();
+                    int.TryParse(newRowId.ToString(), out rowId);
+                    syncItem.Id = rowId;
                     success = true;
                 }
                 else

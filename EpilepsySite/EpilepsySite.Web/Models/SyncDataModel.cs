@@ -15,5 +15,6 @@ namespace EpilepsySite.Web.Models
         public float Alt { get; set; }
         public float Accuracy { get; set; }
         public List<HeartRateItem> HeartRatePackets { get; set; }
+        public List<MotionSensorItem> MotionSensorPackets { get; set; }
     }
 }
