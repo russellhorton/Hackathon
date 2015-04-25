@@ -1954,3 +1954,4 @@ System.Net.WebException: The request was aborted: The operation has timed out.
 2015-04-25 15:55:25,936 [31] INFO  Umbraco.Web.UmbracoModule - [Thread 42] Setting OriginalRequestUrl: epilepsysite.local:80/umbraco
 2015-04-25 15:55:36,205 [30] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 41] Application shutdown. Reason: ConfigurationChange
 2015-04-25 15:56:26,291 [31] INFO  umbraco.BusinessLogic.Log - [Thread 38] Log scrubbed.  Removed all items older than 2015-02-24 15:56:26
+2015-04-25 16:45:06,294 [31] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 26] Application shutdown. Reason: ConfigurationChange
