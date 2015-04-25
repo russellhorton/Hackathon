@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</title>
+
+
+</head>
+<body>
+
+<div class="response">
+Test
+</div>
+
+</body>
+
+<script src="jquery-1.11.2.js" ></script>
+<script>
+
+$(function() {
+    console.log( "ready!" );
+});
+
+$( document ).ready(function(){
+	
+	/*$.ajax({
+	  type: "POST",
+	  url: "http://epilepsysite.local/umbraco/api/UserApi/AuthenticateUser/",
+	  data: {username: "anew2@test.com", password:"hackathon3"},
+	  success: loginSuccess
+	});*/
+
+/*
+$.ajax({
+	  type: "POST",
+	  url: "http://epilepsysite.local/umbraco/api/UserApi/RegisterUser/",
+	  data: {firstname: "a", lastname: "newuser2", emailaddress: "anew2@test.com", password:"hackathon"},
+	  success: registerSuccess
+	});
+*/
+
+	
+	$.ajax({
+	  type: "POST",
+	  url: "http://epilepsysite.local/umbraco/api/UserApi/SyncData/",
+	  data: {userid: 1, lat: 0.292929, long: 0.39383, alt: 20.202, accuracy: 20, datetime: "2015/04/25 13:54:59", heartratepackets: [
+	  	{userid: 1, heartrate: 83, datetime: "2015/04/25 13:54:00"},
+	  	{userid:1, heartrate:84, datetime: "2015/04/25 13:54:01"}
+	  ]
+	},
+	  success: syncSuccess
+	});
+
+});
+
+
+//{FirstName:"firstname", LastName: "lastname", EmailAddress: "emailaddress", Password: "password"},
+function loginSuccess(data){
+	alert("login response: " + data);
+}
+
+function registerSuccess(data){
+	alert("register response: " + data);
+}
+
+function syncSuccess(data){
+	alert("Sync response: " + data);
+}
+
+
+</script>
+
+</html>
