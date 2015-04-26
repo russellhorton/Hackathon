@@ -1487,3 +1487,4 @@ System.Web.HttpParseException (0x80004005): Encountered end tag "nav" with no ma
 2015-04-26 09:01:03,281 [45] INFO  Umbraco.Core.PluginManager - [Thread 49] Completed resolution of types of Umbraco.Core.PropertyEditors.IParameterEditor, found 44 (took 1ms)
 2015-04-26 09:01:25,641 [13] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 56] Application shutdown. Reason: MaxRecompilationsReached
 2015-04-26 09:02:11,473 [45] INFO  umbraco.BusinessLogic.Log - [Thread 51] Log scrubbed.  Removed all items older than 2015-02-25 09:02:10
+2015-04-26 09:08:50,327 [45] INFO  Umbraco.Core.UmbracoApplicationBase - [Thread 15] Application shutdown. Reason: ConfigurationChange
