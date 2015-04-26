@@ -10,12 +10,13 @@
   @if (Membership.GetUser() != null)
     {
         var userName = Membership.GetUser().UserName;
-<p>Logged in as: @userName</p>
+
 
     <ul class ="menu">
     <li><a href="/">Home</a></li>
     <li><a href="/profile/">Profile</a></li>
         <li><a href="/reports/report/?userid=@Membership.GetUser().ProviderUserKey">Reports</a></li>
+        <li><a href="#">@userName</a></li>
 </ul>
 
     }

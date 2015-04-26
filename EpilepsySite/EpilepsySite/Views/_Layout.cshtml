@@ -41,7 +41,6 @@
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><i class="fa fa-bars"></i></button>
-                <span class="navbar-brand" id="Logo"><a href="/"><img style="border-width:0px;" alt="Logo" src="@Url.Content("/css/EpilexyTheme/images/logo.png")" /></a></span>
             </div>
             <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <div id="MenuH">
@@ -118,7 +117,14 @@
             </div>
             <div class="col-md-3" id="bt-sidebar">
                 <div class="visible-xs visible-sm"><hr></div>
-               
+                <div id="MenuV">
+                    @{ Html.RenderPartial("BindNavigation"); }
+                <script type="text/javascript">
+                    (function ($) {
+                        $("#MenuV .menu").BindMENU({ MenuStyle: "DefaultMenu", Orientation: "Vertical" });
+                    })(jQuery);
+                </script>
+            </div>
             @RenderSection("SidebarZone", false)
         </div>
     </div>
