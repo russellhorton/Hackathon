@@ -9,7 +9,6 @@ namespace EpilepsySite.Web.Data
 {
     public class MotionSensor
     {
-
         private const string InsertMotionSensorItemQuery = "INSERT INTO dt_MotionSensor (UserId, SyncId, TimeStamp, XValue, YValue, ZValue, Gravity) VALUES (@UserId,@SyncId,@TimeStamp,@XValue,@YValue,@ZValue,@Gravity)";
         private const string GetAllMotionSensorItemsQuery = "SELECT * FROM dt_MotionSensor";
         private const string GetAllMotionSensorItemsByUserIdQuery = "SELECT * FROM dt_MotionSensor WHERE UserId = @userId";
@@ -141,6 +140,5 @@ namespace EpilepsySite.Web.Data
 
             return motionSensorItems;
         }
-
     }
 }

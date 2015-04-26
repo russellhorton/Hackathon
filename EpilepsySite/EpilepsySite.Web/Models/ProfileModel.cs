@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace EpilepsySite.Web.Models
 {
-    public class RegisterModel
+    public class ProfileModel
     {
         [Required]
         public string FirstName { get; set; }
@@ -17,14 +17,17 @@ namespace EpilepsySite.Web.Models
         [Required]
         [EmailAddress]
         public string EmailAddress { get; set; }
-
         [Required]
         public string Password { get; set; }
-
         [Required]
         public string UserType { get; set; }
-
         public int UserId { get; set; }
+
+        public string NewConnections { get; set; }
+
+        public List<Umbraco.Core.Models.IMember> ConfirmedConnections { get; set; }
+        public List<Umbraco.Core.Models.IMember> PendingConnections { get; set; }
+
 
         public IEnumerable<SelectListItem> UserTypes
         {
@@ -33,7 +36,7 @@ namespace EpilepsySite.Web.Models
                 List<SelectListItem> userTypes = new List<SelectListItem>();
                 
                 userTypes.Add(new SelectListItem { Selected = false, Text = "Patient", Value = "Patient"});
-                userTypes.Add(new SelectListItem { Selected = false, Text = "Gardian", Value = "Guardian"});
+                userTypes.Add(new SelectListItem { Selected = false, Text = "Gardian", Value = "Guardian" });
                 
                return userTypes;
             }

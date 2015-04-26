@@ -241,7 +241,6 @@
     <Content Include="bin\EpilepsySite.dll" />
     <Content Include="bin\EpilepsySite.pdb" />
     <Content Include="bin\Examine.dll" />
-    <Content Include="bin\Fanoe.dll" />
     <Content Include="bin\HtmlAgilityPack.dll" />
     <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
     <Content Include="bin\ImageProcessor.dll" />
@@ -288,32 +287,6 @@
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\jquery.min.js" />
-    <Content Include="media\1012\fanoe-denmark.jpg" />
-    <Content Include="media\1013\9027510123_92a91b5cf4_b_dark.jpg" />
-    <Content Include="media\1014\9017002308_81dfd2c1d5_b_dark.jpg" />
-    <Content Include="media\1015\14257753719_2c02b94030_h.jpg" />
-    <Content Include="media\1016\14435759945_a2c58e9ed6_h.jpg" />
-    <Content Include="media\1017\14359779226_df7329d607_h_dark.jpg" />
-    <Content Include="media\1018\10818851674_e375a8751e_b.jpg" />
-    <Content Include="media\1022\9686845888_e2d216ce81_b_dark_small.jpg" />
-    <Content Include="media\1023\form-bg.png" />
-    <Content Include="media\1024\14448232381_8f994d2adc_h_dark.jpg" />
-    <Content Include="media\1027\14434411872_8e663d6de0_h.jpg" />
-    <Content Include="media\1028\14435732345_c9f5b48dfa_h_dark.jpg" />
-    <Content Include="media\1031\9026528992_d38fbc2e28_o_dark.jpg" />
-    <Content Include="media\1032\9039247947_e15a9d8850_b.jpg" />
-    <Content Include="media\1033\whole-earth-catalog.jpg" />
-    <Content Include="media\1036\1912289_753997844648209_7099291360101379579_o.jpg" />
-    <Content Include="media\1037\9015601712_72e44263e4_b.jpg" />
-    <Content Include="media\1038\screen-shot-2014-12-01-at-121327.png" />
-    <Content Include="media\1044\14441035391_7ee1d0d166_h_darken.jpg" />
-    <Content Include="media\1046\14386124825_d43f359900_h_cropped.jpg" />
-    <Content Include="media\1047\9027509991_ff12bd87e4_b_small_cropped.jpg" />
-    <Content Include="media\1048\sharingiscaring_cropped.jpg" />
-    <Content Include="media\1049\9027510123_92a91b5cf4_b_dark.jpg" />
-    <Content Include="scripts\fanoe.js" />
     <Content Include="TestHarness\index.html" />
     <Content Include="TestHarness\jquery-1.11.2.js" />
     <Content Include="umbraco\Actions\delete.aspx" />
@@ -1794,6 +1767,10 @@
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\ReportPage.cshtml" />
     <Content Include="Views\Partials\Reports\ReportTable.cshtml" />
+    <Content Include="Views\Partials\Profile.cshtml" />
+    <Content Include="Views\ProfilePage.cshtml" />
+    <Content Include="Views\ConfirmConnectionPage.cshtml" />
+    <Content Include="Views\Partials\ConfirmConnection.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1804,7 +1781,9 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="css\" />
-    <Folder Include="media\1042\" />
+    <Folder Include="js\" />
+    <Folder Include="media\" />
+    <Folder Include="scripts\" />
     <Folder Include="Views\MacroPartials\" />
   </ItemGroup>
   <ItemGroup>

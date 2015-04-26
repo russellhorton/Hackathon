@@ -12,7 +12,7 @@ namespace EpilepsySite.Web.Objects
         public int UserId { get; set; }
         public string Status { get; set; }
         public float Lat { get; set; }
-        public float Long { get; set; }
+        public float Lng { get; set; }
         public float Alt { get; set; }
         public float Accuracy { get; set; }
         public List<HeartRateItem> HeartRatePackets { get; set; }

@@ -42,7 +42,7 @@ namespace EpilepsySite.Web.Controllers
                 if (found > 1)
                     throw new Exception("User already exists");
 
-                IMember newMember = Services.MemberService.CreateMember(request.EmailAddress, request.EmailAddress, string.Format("{0} {1}", request.FirstName, request.LastName), "Member");
+                IMember newMember = Services.MemberService.CreateMember(request.EmailAddress, request.EmailAddress, string.Format("{0} {1}", request.FirstName, request.LastName), request.UserType);
                 Services.MemberService.Save(newMember);
                 Services.MemberService.SavePassword(newMember, request.Password);
 
@@ -80,7 +80,7 @@ namespace EpilepsySite.Web.Controllers
                HeartRatePackets = heartRatePackets,
                MotionSensorPackets = motionSensorPackets,
                Lat = data.Lat,
-               Long = data.Long,
+               Lng = data.Long,
                Status = "test",
                UserId = data.UserId
            };

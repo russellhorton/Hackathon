@@ -115,6 +115,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="SendGrid.SmtpApi">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGridMail">
+      <HintPath>..\packages\Sendgrid.6.0.1\lib\SendGridMail.dll</HintPath>
+    </Reference>
     <Reference Include="SQLCE4Umbraco">
       <HintPath>..\packages\UmbracoCms.Core.7.2.4\lib\SQLCE4Umbraco.dll</HintPath>
     </Reference>
@@ -224,19 +230,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationManager.cs" />
+    <Compile Include="Controllers\GuardianController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\UserApiController.cs" />
     <Compile Include="Data\HeartRate.cs" />
     <Compile Include="Data\MotionSensor.cs" />
+    <Compile Include="Data\PatientGuardian.cs" />
     <Compile Include="Data\Sync.cs" />
+    <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\UserHelper.cs" />
+    <Compile Include="Models\ConfirmConnectionModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\SyncDataModel.cs" />
+    <Compile Include="Objects\GuardianStatus.cs" />
     <Compile Include="Objects\HeartRateItem.cs" />
     <Compile Include="Objects\MotionSensorItem.cs" />
+    <Compile Include="Objects\PatientGuardianLink.cs" />
     <Compile Include="Objects\SyncItem.cs" />
     <Compile Include="Objects\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

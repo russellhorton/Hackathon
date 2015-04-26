@@ -3,4 +3,4 @@
     Layout = "_Layout.cshtml";
 }
 
-@Html.Raw(Model.Content.GetProperty("Content").Value)
+@Html.Action("GetProfile", "Profile")

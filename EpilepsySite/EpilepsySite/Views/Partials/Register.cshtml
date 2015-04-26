@@ -17,5 +17,8 @@
     @Html.LabelFor(m => m.Password, "Password")
     @Html.TextBoxFor(m => m.Password, new { @class = "text", placeholder = "Password" , type="Password"})
     <br />
+    @Html.LabelFor(m => m.UserType, "User type")
+    @Html.DropDownListFor(m => m.UserType, Model.UserTypes);
+    <br />
     <input type="submit" value="submit"/>
 }

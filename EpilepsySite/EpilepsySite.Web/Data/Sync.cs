@@ -24,7 +24,7 @@ namespace EpilepsySite.Web.Data
             insertSQL.Parameters.AddWithValue("@UserId", syncItem.UserId);
             insertSQL.Parameters.AddWithValue("@PacketLength", syncItem.HeartRatePackets.Count);
             insertSQL.Parameters.AddWithValue("@Status", syncItem.Status);
-            insertSQL.Parameters.AddWithValue("@Long", syncItem.Long);
+            insertSQL.Parameters.AddWithValue("@Long", syncItem.Lng);
             insertSQL.Parameters.AddWithValue("@Lat", syncItem.Lat);
             insertSQL.Parameters.AddWithValue("@Alt", syncItem.Alt);
             insertSQL.Parameters.AddWithValue("@Accuracy", syncItem.Accuracy);

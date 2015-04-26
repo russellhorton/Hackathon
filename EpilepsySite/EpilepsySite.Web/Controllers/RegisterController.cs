@@ -26,7 +26,7 @@ namespace EpilepsySite.Web.Controllers
         public ActionResult Register(RegisterModel model)
         {
 
-            IMember newMember = Services.MemberService.CreateMember(model.EmailAddress, model.EmailAddress, string.Format("{0} {1}", model.FirstName, model.LastName), "Member");
+            IMember newMember = Services.MemberService.CreateMember(model.EmailAddress, model.EmailAddress, string.Format("{0} {1}", model.FirstName, model.LastName), model.UserType);
             Services.MemberService.Save(newMember);
             Services.MemberService.SavePassword(newMember, model.Password);
 
