@@ -5,7 +5,10 @@
     Layout = null;
 }
 
-<script src="~/scripts/Chart.js"></script>
+@if (Request.QueryString["showraw"] != "1")
+{
+    <script src="~/scripts/Chart.js"></script>
+
 
 <h2>Heart Rate</h2>
 <canvas id="heartRateChart" width="1024" height="400"></canvas>
@@ -132,49 +135,80 @@
 
 
 </script>
+}
+else
+{
+    <link href="~/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/scripts/jquery.dataTables.js"></script>
+    <div class="panel panel-default" >
+        <!-- Default panel contents -->
+        <div class="panel-heading">HeartRate</div>
+        <div class="panel-body">
+            <p>Raw heart rate data</p>
+        </div>
+        <!-- Table -->
+        <table class="table" id="heartratetable">
+            <thead>
+                <tr>
+                    <td>UserId</td>
+                    <td>Time Stamp</td>
+                    <td>Heart Rate</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (HeartRateItem item in Model.heartRateItems)
+                {
+                    <tr>
+                        <td>@item.UserId</td>
+                        <td>@item.DateTime</td>
+                        <td>@item.HeartRate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
 
-
-<!--
-<h1>HeartRate</h1>
-<table>
-    <tr>
-        <td>UserId</td>
-        <td>Time Stamp</td>
-        <td>Heart Rate</td>
-    </tr>
-
-    @foreach (HeartRateItem item in Model.heartRateItems)
-    {
-        <tr>
-            <td>@item.UserId</td>
-            <td>@item.DateTime</td>
-            <td>@item.HeartRate</td>
-        </tr>
-    }
-
-</table>
-
-<h1>Motion Sensor data</h1>
-<table>
-    <tr>
-        <td>UserId</td>
-        <td>Time Stamp</td>
-        <td>X Value</td>
-        <td>Y Value</td>
-        <td>Z Value</td>
-        <td>Gravity</td>
-    </tr>
-
-    @foreach (MotionSensorItem item in Model.motionSensorItems)
-    {
-        <tr>
-            <td>@item.UserId</td>
-            <td>@item.DateTime</td>
-            <td>@item.XValue</td>
-            <td>@item.YValue</td>
-            <td>@item.ZValue</td>
-            <td>@item.Gravity</td>
-        </tr>
-    }
-</table>-->
+    <div class="panel panel-default" >
+        <!-- Default panel contents -->
+        <div class="panel-heading">Motion Sensor data</div>
+        <div class="panel-body">
+            <p>Raw motion sensor data</p>
+        </div>
+       
+        <table class="table" id="motiontable">
+            <thead>
+                <tr>
+                    <td>UserId</td>
+                    <td>Time Stamp</td>
+                    <td>X Value</td>
+                    <td>Y Value</td>
+                    <td>Z Value</td>
+                    <td>Gravity</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (MotionSensorItem item in Model.motionSensorItems)
+                {
+                    <tr>
+                        <td>@item.UserId</td>
+                        <td>@item.DateTime</td>
+                        <td>@item.XValue</td>
+                        <td>@item.YValue</td>
+                        <td>@item.ZValue</td>
+                        <td>@item.Gravity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        $(document).ready(function () {
+            $('#motiontable').DataTable();
+            $('#heartratetable').DataTable();
+            
+        });
+    </script>
+}

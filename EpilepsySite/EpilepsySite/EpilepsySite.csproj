@@ -482,6 +482,7 @@
     <Content Include="css\EpilexyTheme\images\Flags\zu-ZA.gif" />
     <Content Include="css\EpilexyTheme\images\logo.png" />
     <Content Include="css\EpilexyTheme\images\search.gif" />
+    <Content Include="css\jquery.dataTables.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="scripts\Chart.js" />
@@ -492,6 +493,7 @@
     <Content Include="scripts\EpilexyTheme\js\initilizations.js" />
     <Content Include="scripts\EpilexyTheme\js\jquery.min.js" />
     <Content Include="scripts\EpilexyTheme\js\respond.min.js" />
+    <Content Include="scripts\jquery.dataTables.js" />
     <Content Include="TestHarness\index.html" />
     <Content Include="TestHarness\jquery-1.11.2.js" />
     <Content Include="umbraco\Actions\delete.aspx" />
