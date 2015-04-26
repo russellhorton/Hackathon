@@ -1,4 +1,7 @@
-﻿using EpilepsySite.Web.Models;
+﻿using EpilepsySite.Web.Configuration;
+using EpilepsySite.Web.Data;
+using EpilepsySite.Web.Helpers;
+using EpilepsySite.Web.Models;
 using EpilepsySite.Web.Objects;
 using System;
 using System.Collections.Generic;
@@ -125,6 +128,44 @@ namespace EpilepsySite.Web.Controllers
            }
 
            return "Completed with errors: " + string.Join(", ", errors);
+
+        }
+
+        public void SendAlert([FromBody]AlertModel data)
+        {
+            List<PatientGuardianLink> links = PatientGuardian.GetAllGuardiansForPatient(data.UserId);
+            IMember patient = Services.MemberService.GetById(data.UserId);
+
+            List<SyncItem> syncHistory = Sync.GetAllSyncHistory(data.UserId);
+            string staticMapLink = string.Empty;
+
+            if (syncHistory.Any())
+            {
+                SyncItem latestSync = syncHistory[0];
+                staticMapLink = string.Format("https://maps.googleapis.com/maps/api/staticmap?center={0},{1}&zoom=15&size=600x300&key={2}&markers=color:blue%7Clabel:S%7C{0},{1}", latestSync.Lat, latestSync.Lng, ConfigurationManager.GoogleStaticMapsAPIKey);
+
+            }
+
+            
+            foreach (PatientGuardianLink link in links)
+            {
+                IMember guardian = Services.MemberService.GetById(link.GuardianId);
+                
+                if (guardian != null)
+                {
+                    try { 
+                        EmailHelper.SendEmail(guardian.Email,
+                        patient.Email,
+                        string.Format("Siezure warning for {0}", patient.Name),
+                        string.Format("Please come quick! <br/><img src='{0}' alt='location of {1}'/>", staticMapLink, patient.Name));
+                    }
+                    catch (Exception ex)
+                    {
+                        //guess no help is coming.
+                    }
+                }
+
+            }
 
         }
 

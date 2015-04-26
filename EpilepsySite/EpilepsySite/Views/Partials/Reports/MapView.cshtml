@@ -1,0 +1,43 @@
+﻿@using EpilepsySite.Web.Objects;
+@model EpilepsySite.Web.Models.MapModel
+@{
+    Layout = null;
+}
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+<script>
+    function initialize() {
+        var mapOptions = { zoom: 12, center: new google.maps.LatLng(@Model.syncItems[0].Lat, @Model.syncItems[0].Lng) };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(@Model.syncItems[0].Lat, @Model.syncItems[0].Lng),
+            map: map,
+            title: 'Test'
+        });
+
+        var locationHistory = [
+            @foreach(SyncItem item in Model.syncItems){
+                string mappoint = string.Format("new google.maps.LatLng({0},{1}),", item.Lat, item.Lng);
+                @mappoint
+            }
+        ];
+
+        var historyPath = new google.maps.Polyline({
+            path: locationHistory,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+
+        historyPath.setMap(map);
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<h2>Location history</h2>
+<div id="map-canvas" style="width:800px;height:500px;"></div>

@@ -23,6 +23,12 @@ $(function() {
 
 $( document ).ready(function(){
 	
+$.ajax({
+	  type: "POST",
+	  url: "http://epilepsysite.local/umbraco/api/UserApi/SendAlert/",
+	  data: {userid : 1155}	  
+	});
+
 	/*$.ajax({
 	  type: "POST",
 	  url: "http://epilepsysite.local/umbraco/api/UserApi/AuthenticateUser/",
@@ -38,7 +44,7 @@ $.ajax({
 	  success: registerSuccess
 	});
 */
-
+/*
 	var userid=1155
 
 	$.ajax({
@@ -46,8 +52,8 @@ $.ajax({
 	  url: "http://epilepsysite.local/umbraco/api/UserApi/SyncData/",
 	  data: {
 	  	userid: userid, 
-	  	lat: 0.292929, 
-	  	long: 0.39383, 
+	  	lat: 50.8162667, 
+	  	lng: 4.2741876, 
 	  	alt: 20.202, 
 	  	accuracy: 20, 
 	  	datetime: "2015/04/25 13:54:59", 
@@ -117,10 +123,10 @@ $.ajax({
 	  		]                                                                                        
 	},                                                                                               
 	  success: syncSuccess                                                                           
-	});                                                                                              
+	});     */                                                                                         
                                                                                                      
 });                                                                                                  
-                                                                                                     
+                                                                                                   
                                                                                                     
 //{FirstName:"firstname", LastName: "lastname", EmailAddress: "emailaddress", Password: "password"}, 
 function loginSuccess(data){                                                                         

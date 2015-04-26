@@ -1981,6 +1981,8 @@
     <Content Include="Views\ConfirmConnectionPage.cshtml" />
     <Content Include="Views\Partials\ConfirmConnection.cshtml" />
     <Content Include="Views\Partials\BindNavigation.cshtml" />
+    <Content Include="Views\MapsPage.cshtml" />
+    <Content Include="Views\Partials\Reports\MapView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

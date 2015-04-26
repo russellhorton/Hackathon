@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "_Layout.cshtml";
+}
+
+@section PageTitleZone{
+    @Html.Raw(Model.Content.GetPropertyValue("Heading"))
+}
+
+
+@section L7_Zone40_2 {
+<div class="C00_CleanWPadding container-box">
+
+    @Html.Action("GetMapData", "Report")
+
+</div>
+}
