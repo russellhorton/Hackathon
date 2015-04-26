@@ -3,3 +3,8 @@
     Layout = "_Layout.cshtml";
 }
 
+@section PageTitleZone{
+    @Html.Raw(Model.Content.GetPropertyValue("Heading"))
+}
+
+

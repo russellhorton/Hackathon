@@ -3,4 +3,12 @@
     Layout = "_Layout.cshtml";
 }
 
-@Html.Action("GetAllData","Report")
+@section PageTitleZone{
+    @Html.Raw(Model.Content.GetPropertyValue("Heading"))
+}
+@section L4_Zone100 {
+    <div class="C00_CleanWPadding container-box">
+
+        @Html.Action("GetAllData", "Report")
+</div>
+    }
