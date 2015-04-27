@@ -8,7 +8,7 @@ namespace EpilepsySite.Web.Models
 {
     public class ReportModel
     {
-        public List<HeartRateItem> heartRateItems { get; set; }
-        public List<MotionSensorItem> motionSensorItems { get; set; }
+        public IEnumerable<HeartRateItem> heartRateItems { get; set; }
+        public IEnumerable<MotionSensorItem> motionSensorItems { get; set; }
     }
 }

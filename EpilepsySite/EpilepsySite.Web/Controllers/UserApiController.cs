@@ -3,6 +3,7 @@ using EpilepsySite.Web.Data;
 using EpilepsySite.Web.Helpers;
 using EpilepsySite.Web.Models;
 using EpilepsySite.Web.Objects;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,7 +84,7 @@ namespace EpilepsySite.Web.Controllers
                HeartRatePackets = heartRatePackets,
                MotionSensorPackets = motionSensorPackets,
                Lat = data.Lat,
-               Lng = data.Long,
+               Lng = data.Lng,
                Status = "test",
                UserId = data.UserId
            };
@@ -166,6 +167,38 @@ namespace EpilepsySite.Web.Controllers
                 }
 
             }
+
+        }
+
+
+        public string ReturnData([FromBody]ReportRequest r)
+        {
+
+            ReportModel model = new ReportModel();
+
+            if (r.UserId > 0 && r.TimeSince != default(DateTime))
+            {
+
+                model.heartRateItems = Data.HeartRate.GetAllHeartRateItemsByUserIdSinceTime(r.UserId, r.TimeSince);
+                model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItemsByUserIdSinceTime(r.UserId, r.TimeSince);
+            }
+            else
+            {
+                model.heartRateItems = Data.HeartRate.GetAllHeartRateItemsByUserId(r.UserId);
+                model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItemsByUserId(r.UserId);
+                
+                IEnumerable<HeartRateItem> hritems = new List<HeartRateItem>{model.heartRateItems.Take(30).LastOrDefault<HeartRateItem>()};
+                IEnumerable<MotionSensorItem> msitems = new List<MotionSensorItem>{model.motionSensorItems.Take(30).LastOrDefault<MotionSensorItem>()};
+
+
+                model.heartRateItems = hritems;
+                model.motionSensorItems = msitems;
+            }
+            
+
+
+
+            return JsonConvert.SerializeObject(model).ToString();
 
         }
 

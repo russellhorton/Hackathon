@@ -10,8 +10,9 @@ namespace EpilepsySite.Web.Data
     public class MotionSensor
     {
         private const string InsertMotionSensorItemQuery = "INSERT INTO dt_MotionSensor (UserId, SyncId, TimeStamp, XValue, YValue, ZValue, Gravity) VALUES (@UserId,@SyncId,@TimeStamp,@XValue,@YValue,@ZValue,@Gravity)";
-        private const string GetAllMotionSensorItemsQuery = "SELECT * FROM dt_MotionSensor";
-        private const string GetAllMotionSensorItemsByUserIdQuery = "SELECT * FROM dt_MotionSensor WHERE UserId = @userId";
+        private const string GetAllMotionSensorItemsQuery = "SELECT * FROM dt_MotionSensor order by TimeStamp Desc";
+        private const string GetAllMotionSensorItemsByUserIdQuery = "SELECT * FROM dt_MotionSensor WHERE UserId = @userId order by TimeStamp Desc";
+        private const string GetAllMotionSensorItemsByUserIdSinceTimeQuery = "SELECT TOP 30 * FROM dt_MotionSensor WHERE UserId = @userId and TimeStamp > @timestamp order by TimeStamp Desc";
 
         public static bool InsertMotionSensorItem(MotionSensorItem motionSensorItem)
         {
@@ -107,7 +108,7 @@ namespace EpilepsySite.Web.Data
             SqlCeConnection connection = new SqlCeConnection(Configuration.ConfigurationManager.ConnectionString);
 
             SqlCeCommand selectSQL = new SqlCeCommand(GetAllMotionSensorItemsByUserIdQuery, connection);
-            selectSQL.Parameters.AddWithValue("@UserId", userid);
+            selectSQL.Parameters.AddWithValue("@userId", userid);
 
             try
             {
@@ -140,5 +141,48 @@ namespace EpilepsySite.Web.Data
 
             return motionSensorItems;
         }
+        
+        public static List<MotionSensorItem> GetAllMotionSensorItemsByUserIdSinceTime(int userid ,DateTime timeSince)
+        {
+            List<MotionSensorItem> motionSensorItems = new List<MotionSensorItem>();
+
+            SqlCeConnection connection = new SqlCeConnection(Configuration.ConfigurationManager.ConnectionString);
+
+            SqlCeCommand selectSQL = new SqlCeCommand(GetAllMotionSensorItemsByUserIdSinceTimeQuery, connection);
+            selectSQL.Parameters.AddWithValue("@userId", userid);
+            selectSQL.Parameters.AddWithValue("@timestamp", timeSince);
+
+            try
+            {
+                connection.Open();
+
+                SqlCeDataReader dataReader = selectSQL.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    MotionSensorItem motionSensorItem = new MotionSensorItem();
+                    motionSensorItem.DateTime = (DateTime)dataReader.GetSqlDateTime(dataReader.GetOrdinal("TimeStamp"));
+                    motionSensorItem.Gravity = (float)dataReader.GetSqlDouble(dataReader.GetOrdinal("Gravity"));
+                    motionSensorItem.XValue = (float)dataReader.GetSqlDouble(dataReader.GetOrdinal("XValue"));
+                    motionSensorItem.YValue = (float)dataReader.GetSqlDouble(dataReader.GetOrdinal("YValue"));
+                    motionSensorItem.ZValue = (float)dataReader.GetSqlDouble(dataReader.GetOrdinal("ZValue"));
+                    motionSensorItem.SyncId = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("SyncId"));
+                    motionSensorItem.UserId = (int)dataReader.GetSqlInt32(dataReader.GetOrdinal("UserId"));
+                    motionSensorItems.Add(motionSensorItem);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return motionSensorItems;
+        }
+
     }
 }

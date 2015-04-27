@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabases>false</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,6 +41,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ExcludeFilesFromDeployment>**\.sdf\**\*.*</ExcludeFilesFromDeployment>
+	<ExcludeFoldersFromDeployment>App_Data</ExcludeFoldersFromDeployment> 
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
@@ -485,6 +488,12 @@
     <Content Include="css\jquery.dataTables.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\sort_asc.png" />
+    <Content Include="images\sort_asc_disabled.png" />
+    <Content Include="images\sort_both.png" />
+    <Content Include="images\sort_desc.png" />
+    <Content Include="images\sort_desc_disabled.png" />
     <Content Include="scripts\Chart.js" />
     <Content Include="scripts\EpilexyTheme\js\BindMENU.js" />
     <Content Include="scripts\EpilexyTheme\js\bootstrap.min.js" />
@@ -1970,6 +1979,7 @@
     <Content Include="css\EpilexyTheme\fonts\fontawesome-webfont.woff" />
     <Content Include="css\EpilexyTheme\fonts\fontawesome-webfont.woff2" />
     <Content Include="css\EpilexyTheme\fonts\FontAwesome.otf" />
+    <Content Include="images\Sorting icons.psd" />
     <None Include="Properties\PublishProfiles\epilexy.pubxml" />
     <Content Include="Views\Partials\Login.cshtml" />
     <Content Include="Views\ContentPage.cshtml" />
@@ -1985,6 +1995,7 @@
     <Content Include="Views\Partials\BindNavigation.cshtml" />
     <Content Include="Views\MapsPage.cshtml" />
     <Content Include="Views\Partials\Reports\MapView.cshtml" />
+    <Content Include="Views\Partials\Reports\ReportTable - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

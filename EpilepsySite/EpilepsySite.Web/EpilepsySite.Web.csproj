@@ -142,10 +142,12 @@
       <Private>True</Private>
       <HintPath>..\packages\UmbracoCms.Core.7.2.4\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -233,6 +235,7 @@
     <Compile Include="Controllers\GuardianController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ReportApiController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SecurityController.cs" />
     <Compile Include="Controllers\UserApiController.cs" />
@@ -249,6 +252,7 @@
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\ReportRequest.cs" />
     <Compile Include="Models\SyncDataModel.cs" />
     <Compile Include="Objects\GuardianStatus.cs" />
     <Compile Include="Objects\HeartRateItem.cs" />

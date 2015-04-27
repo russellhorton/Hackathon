@@ -31,6 +31,12 @@ namespace EpilepsySite.Web.Controllers
                 model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItems();
             }
 
+            if (string.IsNullOrEmpty(Request.QueryString["showraw"]))
+            {
+                model.heartRateItems = model.heartRateItems.Take(30);
+                model.motionSensorItems = model.motionSensorItems.Take(30);
+            }
+
             return PartialView("Reports/ReportTable", model);
 
         }

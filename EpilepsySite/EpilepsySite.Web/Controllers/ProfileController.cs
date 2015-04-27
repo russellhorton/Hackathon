@@ -94,7 +94,7 @@ namespace EpilepsySite.Web.Controllers
                         email.Trim(), 
                         member.Email, 
                         "Request to be a guardian", 
-                        string.Format("Go here to confirm your connection to this patient: http://epilepsysite.local/confirmconnection/?linkid={0}", link.Id));                        
+                        string.Format("Go here to confirm your connection to this patient: http://epilexy.azurewebsites.net/confirmconnection/?linkid={0}", link.Id));                        
                     }
                 }
 
