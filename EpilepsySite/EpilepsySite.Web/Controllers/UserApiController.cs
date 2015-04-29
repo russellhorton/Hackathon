@@ -171,10 +171,12 @@ namespace EpilepsySite.Web.Controllers
         }
 
 
-        public string ReturnData([FromBody]ReportRequest r)
+        public string ReturnLatest([FromBody]ReportRequest r)
         {
 
             ReportModel model = new ReportModel();
+            model.heartRateItems = new List<HeartRateItem>();
+            model.motionSensorItems = new List<MotionSensorItem>(); 
 
             if (r.UserId > 0 && r.TimeSince != default(DateTime))
             {
@@ -182,21 +184,22 @@ namespace EpilepsySite.Web.Controllers
                 model.heartRateItems = Data.HeartRate.GetAllHeartRateItemsByUserIdSinceTime(r.UserId, r.TimeSince);
                 model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItemsByUserIdSinceTime(r.UserId, r.TimeSince);
             }
-            else
+
+            return JsonConvert.SerializeObject(model).ToString();
+
+        }
+
+        public string ReturnLast20([FromBody]ReportRequest r)
+        {
+            ReportModel model = new ReportModel();
+            model.heartRateItems = new List<HeartRateItem>();
+            model.motionSensorItems = new List<MotionSensorItem>();
+
+            if (r.UserId > 0)
             {
                 model.heartRateItems = Data.HeartRate.GetAllHeartRateItemsByUserId(r.UserId);
                 model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItemsByUserId(r.UserId);
-                
-                IEnumerable<HeartRateItem> hritems = new List<HeartRateItem>{model.heartRateItems.Take(30).LastOrDefault<HeartRateItem>()};
-                IEnumerable<MotionSensorItem> msitems = new List<MotionSensorItem>{model.motionSensorItems.Take(30).LastOrDefault<MotionSensorItem>()};
-
-
-                model.heartRateItems = hritems;
-                model.motionSensorItems = msitems;
             }
-            
-
-
 
             return JsonConvert.SerializeObject(model).ToString();
 

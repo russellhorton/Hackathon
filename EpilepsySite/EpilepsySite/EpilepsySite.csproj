@@ -42,7 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ExcludeFilesFromDeployment>**\.sdf\**\*.*</ExcludeFilesFromDeployment>
-	<ExcludeFoldersFromDeployment>App_Data</ExcludeFoldersFromDeployment> 
+    <ExcludeFoldersFromDeployment>App_Data</ExcludeFoldersFromDeployment>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper">
@@ -494,7 +494,7 @@
     <Content Include="images\sort_both.png" />
     <Content Include="images\sort_desc.png" />
     <Content Include="images\sort_desc_disabled.png" />
-    <Content Include="scripts\Chart.js" />
+    <Content Include="scripts\Vendor\Chart.js" />
     <Content Include="scripts\EpilexyTheme\js\BindMENU.js" />
     <Content Include="scripts\EpilexyTheme\js\bootstrap.min.js" />
     <Content Include="scripts\EpilexyTheme\js\fix-responsive-WP8.js" />
@@ -502,7 +502,8 @@
     <Content Include="scripts\EpilexyTheme\js\initilizations.js" />
     <Content Include="scripts\EpilexyTheme\js\jquery.min.js" />
     <Content Include="scripts\EpilexyTheme\js\respond.min.js" />
-    <Content Include="scripts\jquery.dataTables.js" />
+    <Content Include="scripts\Vendor\jquery.dataTables.js" />
+    <Content Include="scripts\Report.js" />
     <Content Include="TestHarness\index.html" />
     <Content Include="TestHarness\jquery-1.11.2.js" />
     <Content Include="umbraco\Actions\delete.aspx" />

@@ -13,7 +13,7 @@ namespace EpilepsySite.Web.Data
 
         private const string InsertHeartRateItemQuery = "INSERT INTO dt_HeartRate (UserId, SyncId, TimeStamp, HeartRate) VALUES (@UserId,@SyncId,@TimeStamp,@HeartRate)";
         private const string GetAllHeartRateItemsQuery = "SELECT * FROM dt_HeartRate order by TimeStamp desc";
-        private const string GetAllHeartRateItemsByUserIdQuery = "SELECT * FROM dt_HeartRate WHERE UserId = @userId order by TimeStamp Desc";
+        private const string GetAllHeartRateItemsByUserIdQuery = "SELECT TOP 30 * FROM dt_HeartRate WHERE UserId = @userId order by TimeStamp Desc";
         private const string GetAllHeartRateItemsByUserIdSinceTimeQuery = "SELECT TOP 30 * FROM dt_HeartRate WHERE UserId = @userId and TimeStamp > @timestamp order by TimeStamp Desc";
 
 

@@ -11,7 +11,7 @@ namespace EpilepsySite.Web.Data
     {
         private const string InsertMotionSensorItemQuery = "INSERT INTO dt_MotionSensor (UserId, SyncId, TimeStamp, XValue, YValue, ZValue, Gravity) VALUES (@UserId,@SyncId,@TimeStamp,@XValue,@YValue,@ZValue,@Gravity)";
         private const string GetAllMotionSensorItemsQuery = "SELECT * FROM dt_MotionSensor order by TimeStamp Desc";
-        private const string GetAllMotionSensorItemsByUserIdQuery = "SELECT * FROM dt_MotionSensor WHERE UserId = @userId order by TimeStamp Desc";
+        private const string GetAllMotionSensorItemsByUserIdQuery = "SELECT TOP 30 * FROM dt_MotionSensor WHERE UserId = @userId order by TimeStamp Desc";
         private const string GetAllMotionSensorItemsByUserIdSinceTimeQuery = "SELECT TOP 30 * FROM dt_MotionSensor WHERE UserId = @userId and TimeStamp > @timestamp order by TimeStamp Desc";
 
         public static bool InsertMotionSensorItem(MotionSensorItem motionSensorItem)

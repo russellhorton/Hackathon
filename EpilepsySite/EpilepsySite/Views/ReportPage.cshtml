@@ -3,6 +3,13 @@
     Layout = "_Layout.cshtml";
 }
 
+@section Scripts {
+    <script src="~/scripts/vendor/Chart.js"></script>
+    <script src="~/scripts/vendor/jquery.dataTables.js"></script>
+    <script src="~/scripts/Report.js"></script>
+    <link href="~/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+}
+
 @section PageTitleZone{
     @Html.Raw(Model.Content.GetPropertyValue("Heading"))
 }
