@@ -12,52 +12,33 @@ using Umbraco.Web.Mvc;
 
 namespace EpilepsySite.Web.Controllers
 {
+    [AuthorizeAttribute]
     public class ReportController: SurfaceController
     {
+        [HttpGet]
         public ActionResult GetAllData()
         {
-
             ReportModel model = new ReportModel();
+            int userId = (int)Membership.GetUser().ProviderUserKey;
 
-            if (!string.IsNullOrEmpty(Request.QueryString["userid"]))
-            {
-                int userid = int.Parse(Request.QueryString["userid"]);
-                model.heartRateItems = Data.HeartRate.GetAllHeartRateItemsByUserId(userid);
-                model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItemsByUserId(userid);
-            }
-            else 
-            { 
-                model.heartRateItems = Data.HeartRate.GetAllHeartRateItems();
-                model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItems();
-            }
-
+            model.heartRateItems = Data.HeartRate.GetAllHeartRateItemsByUserId(userId);
+            model.motionSensorItems = Data.MotionSensor.GetAllMotionSensorItemsByUserId(userId);
+           
             if (string.IsNullOrEmpty(Request.QueryString["showraw"]))
             {
-                model.heartRateItems = model.heartRateItems.Take(30);
-                model.motionSensorItems = model.motionSensorItems.Take(30);
+                model.heartRateItems = model.heartRateItems;
+                model.motionSensorItems = model.motionSensorItems;
             }
 
             return PartialView("Reports/ReportTable", model);
 
         }
 
+        [HttpGet]
         public ActionResult GetMapData()
-        {
-
-            int userId;
-            if (string.IsNullOrEmpty(Request.QueryString["userid"]))
-            {
-                var user = Membership.GetUser();
-                userId = (int)user.ProviderUserKey;
-            }
-            else
-            {
-               userId = int.Parse(Request.QueryString["userid"].ToString());
-            }
-           
-
-            //IMember member = Services.MemberService.GetById(userId);
-
+        {            
+            int userId = (int)Membership.GetUser().ProviderUserKey;
+          
             List<SyncItem> syncItems = Sync.GetAllSyncHistory(userId);
 
             MapModel model = new MapModel();

@@ -3,44 +3,37 @@
     Layout = null;
 }
 
-
 @using (Html.BeginUmbracoForm("Register", "Register", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <div class="form-group">
         <div class="col-sm-3">
             @Html.LabelFor(m => m.FirstName, "First Name")
-
             @Html.TextBoxFor(m => m.FirstName, new { @class = "text", placeholder = "First Name" })
         </div>
-        </div>
+    </div>
     <div class="form-group">
         <div class="col-sm-3">
             @Html.LabelFor(m => m.LastName, "Last Name")
-
             @Html.TextBoxFor(m => m.LastName, new { @class = "text", placeholder = "Last Name" })
         </div>
-        
     </div>
     <div class="form-group">
         <div class="col-sm-3">
             @Html.LabelFor(m => m.EmailAddress, "Email")
-
             @Html.TextBoxFor(m => m.EmailAddress, new { @class = "text", placeholder = "Email Address" })
         </div>
-        </div>
+    </div>
     <div class="form-group">
         <div class="col-sm-3">
             @Html.LabelFor(m => m.Password, "Password")
-
             @Html.TextBoxFor(m => m.Password, new { @class = "text", placeholder = "Password", type = "Password" })
         </div>
-        </div>
+    </div>
     <div class="form-group">
         <div class="col-sm-3">
             @Html.LabelFor(m => m.UserType, "User type")
-
             @Html.DropDownListFor(m => m.UserType, Model.UserTypes)
         </div>
-        </div>
-        <input type="submit" value="submit" />
-        }
+     </div>
+    <input type="submit" value="submit" />
+}

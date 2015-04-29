@@ -6,10 +6,8 @@
 @using (Html.BeginUmbracoForm("Login", "Security", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     <p>@Model.Message</p>
-
     <div class="form-group">
         <div class="col-sm-3">
-
             @Html.LabelFor(m => m.Username, "Email")
             @Html.TextBoxFor(m => m.Username, new { @class = "text", placeholder = "Email Address" })
         </div>
@@ -18,8 +16,6 @@
         <div class="col-sm-3">
             @Html.LabelFor(m => m.Password, "Password")
             @Html.TextBoxFor(m => m.Password, new { @class = "text", placeholder = "Password", type = "Password" })
-
-
         </div>
     </div>
     <div class="form-group">

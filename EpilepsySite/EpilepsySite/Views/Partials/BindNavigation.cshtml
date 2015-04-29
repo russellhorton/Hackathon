@@ -1,38 +1,32 @@
 @inherits UmbracoTemplatePage
 @{
-    // Model.Content is the current page that we're on AncestorsOrSelf is all of the ancestors this page has in the tree
-    // (1) means: go up to level 1 and stop looking for more ancestors when you get there First() gets the first ancestor found (the home page, on level 1)
     var homePage = CurrentPage.AncestorsOrSelf(1).First();
     var menuItems = homePage.Children.Where("UmbracoNaviHide == false");
 }
-<!-- Nav -->
 
-  @if (Membership.GetUser() != null)
-    {
-        var userName = Membership.GetUser().UserName;
-
+@if (Membership.GetUser() != null)
+{
+    var userName = Membership.GetUser().UserName;
 
     <ul class ="menu">
-    <li><a href="/">Home</a></li>
-    <li><a href="/profile/">Profile</a></li>
-        <li><a href="/reports/report/?userid=@Membership.GetUser().ProviderUserKey">Reports</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/profile/">Profile</a></li>
+        <li><a href="/reports/report/">Reports</a></li>
         <li><a href="/reports/maps/">Maps</a></li>
         <li><a href="#">@userName</a></li>
-</ul>
-
-    }
-    else
-    {
-<nav>
-    <ul class="menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/register/">Register</a></li>
-        <li><a href="/login/">Login</a></li>
     </ul>
-</nav>
-    }
 
-
+}
+else
+{
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/register/">Register</a></li>
+            <li><a href="/login/">Login</a></li>
+        </ul>
+    </nav>
+}
 
 @helper createSubmenu(IEnumerable<IPublishedContent> nodes, int? parentId) {
 	if (nodes.Count() > 0){
@@ -48,4 +42,3 @@
 		</ul>
 	}
 }
-<!-- /Nav -->

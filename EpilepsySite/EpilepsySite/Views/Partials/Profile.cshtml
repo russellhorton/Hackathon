@@ -37,34 +37,33 @@
         <p>Connect with Guardians, add their email address here.</p>
         <div class="form-group">
             <div class="col-sm-3">
-
                 @Html.LabelFor(m => m.NewConnections, "Guardian(s) email")
                 @Html.TextBoxFor(m => m.NewConnections, new { @class = "text", placeholder = "Comma seperate emails" })
             </div>
         </div>
-                        }
+    }
 
-            <h2>Pending Connections</h2>
-            <ul>
-                @foreach (IMember member in Model.PendingConnections)
-                {
-                    <li>@member.Email</li>
-                }
-            </ul>
-            <h2>Confirmed Connections</h2>
-            <ul>
-                @foreach (IMember member in Model.ConfirmedConnections)
-                {
-                    <li>@member.Email</li>
-                }
-            </ul>
+    <h2>Pending Connections</h2>
+    <ul>
+        @foreach (IMember member in Model.PendingConnections)
+        {
+            <li>@member.Email</li>
+        }
+    </ul>
+    <h2>Confirmed Connections</h2>
+    <ul>
+        @foreach (IMember member in Model.ConfirmedConnections)
+        {
+            <li>@member.Email</li>
+        }
+    </ul>
               
-            <div class="form-group">
-                <div class="col-sm-3">
-                    <input type="submit" value="submit" />
-                </div>
-            </div>
+    <div class="form-group">
+        <div class="col-sm-3">
+            <input type="submit" value="submit" />
+        </div>
+    </div>
 
-            @Html.HiddenFor(m => m.UserType);
-            @Html.HiddenFor(m => m.UserId);
-            }
+    @Html.HiddenFor(m => m.UserType);
+    @Html.HiddenFor(m => m.UserId);
+}

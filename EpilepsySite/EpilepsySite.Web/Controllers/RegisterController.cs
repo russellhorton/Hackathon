@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using Umbraco.Core.Models;
 using EpilepsySite.Web.Objects;
+using System.Web.Security;
 
 namespace EpilepsySite.Web.Controllers
 {
@@ -32,10 +33,12 @@ namespace EpilepsySite.Web.Controllers
 
             model.UserId = newMember.Id;
 
-            return PartialView("RegisterSuccess", model);
-        }
+            MembershipUser member = Membership.GetUser(model.EmailAddress);
+            FormsAuthentication.SetAuthCookie(model.EmailAddress,false);
+            return Redirect("/register/thank-you");
 
-        
+            
+        }
 
     }
 }

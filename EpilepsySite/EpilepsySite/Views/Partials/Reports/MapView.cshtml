@@ -4,6 +4,8 @@
     Layout = null;
 }
 
+@if (Model.syncItems.Any()) { 
+
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
 
 <script>
@@ -39,5 +41,12 @@
 
 </script>
 
+
 <h2>Location history</h2>
 <div id="map-canvas" style="width:800px;height:500px;"></div>
+    
+} 
+else 
+{
+    <h2>No Location history yet</h2>
+}

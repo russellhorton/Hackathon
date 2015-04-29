@@ -1,27 +1,27 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <title></title>
-
-    <!-- BindTuning head elements-->
+    
     <link rel="stylesheet" href="/css/EpilexyTheme.css" type="text/css" />
     <link rel="stylesheet" href="@Url.Content("/css/EpilexyTheme/css/font-awesome.min.css")" type="text/css" />
 
     <script type="text/javascript">
         if (typeof jQuery == 'undefined') { document.write('<script type="text/javascript" src="@Url.Content("~/scripts/EpilexyTheme/js/jquery.min.js")"><' + '/script>'); }
-        var style_mobile_path = "@Url.Content("~/css/EpilexyTheme/css/")"; // path for mobile nav css files, UMB-specific
+        var style_mobile_path = "@Url.Content("~/css/EpilexyTheme/css/")";
     </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    
     <!--[if lt IE 9]>
       <script src="@Url.Content("~/scripts/EpilexyTheme/js/html5shiv.min.js")"></script>
       <script src="@Url.Content("~/scripts/EpilexyTheme/js/respond.min.js")"></script>
     <![endif]-->
+    
     <script type="text/javascript" src="@Url.Content("~/scripts/EpilexyTheme/js/bootstrap.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/scripts/EpilexyTheme/js/BindMENU.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/scripts/EpilexyTheme/js/fix-responsive-WP8.js")"></script>
@@ -31,8 +31,6 @@
 
 </head>
 <body>
-
-    <!--Apply class to body with browser version-->
     <script type="text/javascript">
         var nVer = navigator.appVersion; var nAgt = navigator.userAgent; var bN = navigator.appName; var fullV = "" + parseFloat(navigator.appVersion); var majorV = parseInt(navigator.appVersion, 10); var nameOffset, verOffset, ix; if ((verOffset = nAgt.indexOf("Opera")) !== -1) { bN = "Opera"; fullV = nAgt.substring(verOffset + 6); if ((verOffset = nAgt.indexOf("Version")) !== -1) { fullV = nAgt.substring(verOffset + 8) } } else { if ((verOffset = nAgt.indexOf("MSIE")) !== -1) { bN = "IE"; fullV = nAgt.substring(verOffset + 5) } else { if ((verOffset = nAgt.indexOf("Chrome")) !== -1) { bN = "Chrome"; fullV = nAgt.substring(verOffset + 7) } else { if ((verOffset = nAgt.indexOf("Safari")) !== -1) { bN = "Safari"; fullV = nAgt.substring(verOffset + 7); if ((verOffset = nAgt.indexOf("Version")) !== -1) { fullV = nAgt.substring(verOffset + 8) } } else { if ((verOffset = nAgt.indexOf("Firefox")) !== -1) { bN = "Firefox"; fullV = nAgt.substring(verOffset + 8) } else { if ((nameOffset = nAgt.lastIndexOf(" ") + 1) < (verOffset = nAgt.lastIndexOf("/"))) { bN = nAgt.substring(nameOffset, verOffset); fullV = nAgt.substring(verOffset + 1); if (bN.toLowerCase() == bN.toUpperCase()) { bN = navigator.appName } } } } } } } if ((ix = fullV.indexOf(";")) !== -1) { fullV = fullV.substring(0, ix) } if ((ix = fullV.indexOf(" ")) !== -1) { fullV = fullV.substring(0, ix) } majorV = parseInt("" + fullV, 10); if (isNaN(majorV)) { fullV = "" + parseFloat(navigator.appVersion); majorV = parseInt(navigator.appVersion, 10) }
         document.getElementsByTagName("body")[0].className += " " + bN + " " + bN + majorV + " cmsUMB cmsUMB7 BT-pk";
@@ -70,8 +68,6 @@
             @RenderSection("PageTitleZone", false)
         </div>
     </div>
-
-
 
     <div class="container">
         <div class="row">
@@ -131,23 +127,11 @@
     </div>
 </div>
 
-
-
 <footer class="bs-footer" role="contentinfo">
     <div class="container">
         <div id="bt-footer">@RenderSection("FooterZone", false)</div>
         <div class="footer-links">
             <span id="Copyright"><span class="Copyright">&copy;Copyright&nbsp;@DateTime.Now.Year. All rights reserved.</span></span>
-            <span id="Sitemap"><a href="#" class="Sitemap">Sitemap</a></span>
-            <span id="Privacy"><a href="#" class="Privacy">Read about privacy</a></span>
-            <span id="Terms"><a href="#" class="Terms">Read our terms</a></span>
-            <span id="Cart"></span>
-            <span id="Login">
-                <div class="signInOut">
-                    <a href="/umbraco#/login?check=false" class="signinoutButton">login</a>
-                </div>
-            </span>
-            <span id="User"><span class="CurrentUserName">Admin</span></span>
         </div>
     </div>
 </footer>
@@ -155,14 +139,11 @@
 <script type="text/javascript">
     (function ($) {
         $(document).ready(function () {
-            //MovePageTitle
             if (typeof g_disableCheckoutInEditMode != 'undefined' && !g_disableCheckoutInEditMode) {
                 $('.MoveToTitleZone').appendTo('#bt-pagetitle>.container');
             }
         });
     })(jQuery);
 </script>
-
-<!-- powered by BIND TUNING 2014 // http://www.bindtuning.com -->
 </body>
 </html>

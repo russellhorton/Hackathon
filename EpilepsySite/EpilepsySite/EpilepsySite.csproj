@@ -486,7 +486,6 @@
     <Content Include="css\EpilexyTheme\images\logo.png" />
     <Content Include="css\EpilexyTheme\images\search.gif" />
     <Content Include="css\jquery.dataTables.css" />
-    <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\sort_asc.png" />
@@ -1986,7 +1985,6 @@
     <Content Include="Views\ContentPage.cshtml" />
     <Content Include="Views\LoginPage.cshtml" />
     <Content Include="Views\RegisterPage.cshtml" />
-    <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\ReportPage.cshtml" />
     <Content Include="Views\Partials\Reports\ReportTable.cshtml" />
     <Content Include="Views\Partials\Profile.cshtml" />
@@ -1996,7 +1994,6 @@
     <Content Include="Views\Partials\BindNavigation.cshtml" />
     <Content Include="Views\MapsPage.cshtml" />
     <Content Include="Views\Partials\Reports\MapView.cshtml" />
-    <Content Include="Views\Partials\Reports\ReportTable - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2012,6 +2009,7 @@
     <Folder Include="js\" />
     <Folder Include="media\" />
     <Folder Include="Views\MacroPartials\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EpilepsySite.Web\EpilepsySite.Web.csproj">

@@ -14,6 +14,7 @@ using Umbraco.Web.Mvc;
 
 namespace EpilepsySite.Web.Controllers
 {
+    [MemberAuthorize]
     public class ProfileController: SurfaceController
     {
        
@@ -22,8 +23,8 @@ namespace EpilepsySite.Web.Controllers
 
             ProfileModel model = new ProfileModel();            
 
-            var user = Membership.GetUser();
-            var userId = (int)user.ProviderUserKey;
+            MembershipUser user = Membership.GetUser();
+            int userId = (int)user.ProviderUserKey;
 
             IMember member = Services.MemberService.GetById(userId);
 
@@ -57,8 +58,6 @@ namespace EpilepsySite.Web.Controllers
             return PartialView("Profile", model);
 
         }
-
-
 
         public ActionResult UpdateProfile(ProfileModel profile)
         {

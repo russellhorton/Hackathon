@@ -121,7 +121,7 @@ var Epilexy = {
 
                             $.ajax({
                                 type: "POST",
-                                url: "http://epilepsysite.local/umbraco/api/UserApi/ReturnLatest/",
+                                url: "http://epilepsysite.local/umbraco/api/ReportApi/ReturnLatest/",
                                 data: { UserId: Epilexy.Reports.Util.QueryString()["userid"], TimeSince: timeSince },
                                 success: Epilexy.Reports.Chart.Data.HandleResponse
                             });
@@ -132,7 +132,7 @@ var Epilexy = {
                 LoadInitialData: function (){
                     $.ajax({
                         type: "POST",
-                        url: "http://epilepsysite.local/umbraco/api/UserApi/ReturnLast20/",
+                        url: "http://epilepsysite.local/umbraco/api/ReportApi/ReturnLast20/",
                         data: { UserId: Epilexy.Reports.Util.QueryString()["userid"] },
                         success: Epilexy.Reports.Chart.Data.HandleInitialDataResponse
                     });

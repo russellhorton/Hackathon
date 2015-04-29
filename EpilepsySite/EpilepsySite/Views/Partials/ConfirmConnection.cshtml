@@ -2,12 +2,14 @@
 @{
     Layout = null;
 }
+
 @using (Html.BeginUmbracoForm("ConfirmConnection", "Guardian", FormMethod.Post))
 {
     <h1>Please confirm this connection</h1>
     <p>@Model.PatientName has named you as one of their guardians, please confirm or reject this connection by clicking the buttons below</p>
     <input type="submit" value="Confirm" />
 }
+
 @using (Html.BeginUmbracoForm("RejectConnection", "Guardian", FormMethod.Post))
 {
     <input type="submit" value="Reject" />

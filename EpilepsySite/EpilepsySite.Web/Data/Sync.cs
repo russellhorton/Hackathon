@@ -10,7 +10,6 @@ namespace EpilepsySite.Web.Data
 {
     public class Sync
     {
-
         private const string InsertSyncItemQuery = "INSERT INTO dt_Sync (DateTime, UserId, PacketLength, Status, Long, Lat, Alt, Accuracy) VALUES (@DateTime,@UserId,@PacketLength,@Status,@Long,@Lat,@Alt,@Accuracy)";
         private const string GetSyncHistoryQuery = "SELECT * FROM dt_Sync where userid = @userid ORDER BY DateTime DESC";
 
@@ -102,8 +101,6 @@ namespace EpilepsySite.Web.Data
 
             return syncitems;
         }
-
-        
 
     }
 }
